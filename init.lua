@@ -2,11 +2,12 @@
 local include, nodecore
     = include, nodecore
 -- LUALOCALS > ---------------------------------------------------------
-include("node")
+include("creel")
+include("basket")
 include("aism")
 include("craft")
 --include("sift")
---include("hints")
+include("hints")
 ------------------------------------------------------------------------
 minetest.override_item("nc_woodwork:form",
 	{groups = {

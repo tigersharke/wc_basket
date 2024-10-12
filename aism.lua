@@ -7,7 +7,7 @@ nodecore.register_aism({
 		label = "Packed Wicker Basket AISMs",
 		interval = 1,
 		chance = 1,
-		itemnames = {"group:basket"},
+		itemnames = {"group:creel"},
 		action = function(stack, data)
 			local stackmeta = stack:get_meta()
 			local raw = stackmeta:get_string("carrying")

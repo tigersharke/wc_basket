@@ -5,12 +5,12 @@ local minetest, nodecore
 
 local modname = minetest.get_current_modname()
 
-nodecore.register_hint("assemble a lode tote handle",
+nodecore.register_hint("assemble a creel handle",
 	"craft tote handle",
-	{"nc_lode:form", "nc_lode:frame_annealed", "group:totable"}
+	{"nc_woodwork:form", "nc_woodwork:frame", "group:basketable"}
 )
 
-nodecore.register_hint("pack up a complete tote",
+nodecore.register_hint("pack up a complete creel",
 	"inv:" .. modname .. ":handle_full",
-	"craft tote handle"
+	"craft creel handle"
 )
