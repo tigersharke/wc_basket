@@ -1,10 +1,10 @@
 -- LUALOCALS < ---------------------------------------------------------
-local minetest, nodecore
-    = minetest, nodecore
+local minetest, core, nodecore, nc
+    = minetest, core, nodecore, nc
 -- LUALOCALS > ---------------------------------------------------------
-local modname = minetest.get_current_modname()
+local modname = core.get_current_modname()
 ------------------------------------------------------------------------
-nodecore.register_craft({
+nc.register_craft({
 	label = "craft creel handle",
 	action = "stackapply",
 	indexkeys = {"nc_woodwork:form"},
@@ -17,13 +17,13 @@ nodecore.register_craft({
 		},
 	}
 })
-nodecore.register_craft({
+nc.register_craft({
 	label = "break apart creel",
 	action = "pummel",
 	toolgroups = {choppy = 3},
 	check = function(pos, data)
 		if data.node.name == modname .. ":handle" then return true end
-		local stack = nodecore.stack_get(pos)
+		local stack = nc.stack_get(pos)
 		if stack:get_name() ~= modname .. ":handle" then return end
 		return (stack:get_meta():get_string("carrying") or "") == ""
 	end,
@@ -35,11 +35,14 @@ nodecore.register_craft({
 		}
 	},
 	items = {
-		{name = "nc_woodwork:staff 2", count = 4, scatter = 5}
+		{name = "nc_woodwork:staff", count = 4, scatter = 5}
+
+-- Result of below is 8 staves scattered.
+--		{name = "nc_woodwork:staff 2", count = 4, scatter = 5}
 	}
 })
 ------------------------------------------------------------------------
-nodecore.register_craft({
+nc.register_craft({
 	label = "assemble wicker basket",
 	action = "stackapply",
 	indexkeys = {"nc_woodwork:form"},
@@ -52,7 +55,7 @@ nodecore.register_craft({
 		},
 	}
 })
-nodecore.register_craft({
+nc.register_craft({
 	label = "assemble rattan basket",
 	action = "stackapply",
 	indexkeys = {"nc_woodwork:form"},
